@@ -14,4 +14,4 @@ package com.stuypulse.robot.constants;
  *  - The Current Limit
  *  - The Open Loop Ramp Rate
  */
-public final class Motors {}
+public interface Motors {}
