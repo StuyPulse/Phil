@@ -1,12 +1,12 @@
-/************************ PROJECT DORCAS ************************/
-/* Copyright (c) 2022 StuyPulse Robotics. All rights reserved.  */
-/* This work is licensed under the terms of the MIT license.    */
-/****************************************************************/
+/************************ PROJECT PHIL ************************/
+/* Copyright (c) 2022 StuyPulse Robotics. All rights reserved.*/
+/* This work is licensed under the terms of the MIT license.  */
+/**************************************************************/
 
 package com.stuypulse.robot.constants;
 
 /** This file contains the different ports of motors, solenoids and sensors */
-public final class Ports {
+public interface Ports {
     public interface Gamepad {
         int DRIVER = 0;
         int OPERATOR = 1;

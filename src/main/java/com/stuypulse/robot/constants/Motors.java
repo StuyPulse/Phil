@@ -1,7 +1,7 @@
-/************************ PROJECT DORCAS ************************/
-/* Copyright (c) 2022 StuyPulse Robotics. All rights reserved.  */
-/* This work is licensed under the terms of the MIT license.    */
-/****************************************************************/
+/************************ PROJECT PHIL ************************/
+/* Copyright (c) 2022 StuyPulse Robotics. All rights reserved.*/
+/* This work is licensed under the terms of the MIT license.  */
+/**************************************************************/
 
 package com.stuypulse.robot.constants;
 
@@ -14,4 +14,4 @@ package com.stuypulse.robot.constants;
  *  - The Current Limit
  *  - The Open Loop Ramp Rate
  */
-public final class Motors {}
+public interface Motors {}
