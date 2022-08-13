@@ -16,46 +16,46 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 public class RobotContainer {
 
-  // Subsystem
+    // Gamepads
+    public final Gamepad driver = new AutoGamepad(Ports.Gamepad.DRIVER);
+    public final Gamepad operator = new AutoGamepad(Ports.Gamepad.OPERATOR);
+    
+    // Subsystem
 
-  // Gamepads
-  public final Gamepad driver = new AutoGamepad(Ports.Gamepad.DRIVER);
-  public final Gamepad operator = new AutoGamepad(Ports.Gamepad.OPERATOR);
+    // Autons
+    private static SendableChooser<Command> autonChooser = new SendableChooser<>();
 
-  // Autons
-  private static SendableChooser<Command> autonChooser = new SendableChooser<>();
+    // Robot container
 
-  // Robot container
+    public RobotContainer() {
+        configureDefaultCommands();
+        configureButtonBindings();
+        configureAutons();
+    }
 
-  public RobotContainer() {
-    configureDefaultCommands();
-    configureButtonBindings();
-    configureAutons();
-  }
+    /****************/
+    /*** DEFAULTS ***/
+    /****************/
 
-  /****************/
-  /*** DEFAULTS ***/
-  /****************/
+    private void configureDefaultCommands() {}
 
-  private void configureDefaultCommands() {}
+    /***************/
+    /*** BUTTONS ***/
+    /***************/
 
-  /***************/
-  /*** BUTTONS ***/
-  /***************/
+    private void configureButtonBindings() {}
 
-  private void configureButtonBindings() {}
+    /**************/
+    /*** AUTONS ***/
+    /**************/
 
-  /**************/
-  /*** AUTONS ***/
-  /**************/
+    public void configureAutons() {
+        autonChooser.setDefaultOption("Do Nothing", new DoNothingAuton());
 
-  public void configureAutons() {
-    autonChooser.setDefaultOption("Do Nothing", new DoNothingAuton());
+        SmartDashboard.putData("Autonomous", autonChooser);
+    }
 
-    SmartDashboard.putData("Autonomous", autonChooser);
-  }
-
-  public Command getAutonomousCommand() {
-    return autonChooser.getSelected();
-  }
+    public Command getAutonomousCommand() {
+        return autonChooser.getSelected();
+    }
 }

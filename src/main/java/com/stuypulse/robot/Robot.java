@@ -11,81 +11,81 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
 
-  private RobotContainer robot;
-  private Command auto;
+    private RobotContainer robot;
+    private Command auto;
 
-  /*************************/
-  /*** ROBOT SCHEDULEING ***/
-  /*************************/
+    /*************************/
+    /*** ROBOT SCHEDULEING ***/
+    /*************************/
 
-  @Override
-  public void robotInit() {
-    robot = new RobotContainer();
-  }
-
-  @Override
-  public void robotPeriodic() {
-    CommandScheduler.getInstance().run();
-  }
-
-  /*********************/
-  /*** DISABLED MODE ***/
-  /*********************/
-
-  @Override
-  public void disabledInit() {}
-
-  @Override
-  public void disabledPeriodic() {}
-
-  /***********************/
-  /*** AUTONOMOUS MODE ***/
-  /***********************/  
-
-  @Override
-  public void autonomousInit() {
-    auto = robot.getAutonomousCommand();
-
-    if (auto != null) {
-      auto.schedule();
+    @Override
+    public void robotInit() {
+        robot = new RobotContainer();
     }
-  }
 
-  @Override
-  public void autonomousPeriodic() {}
-
-  @Override
-  public void autonomousExit() {}
-
-  /*******************/
-  /*** TELEOP MODE ***/
-  /*******************/
-
-  @Override
-  public void teleopInit() {
-    if (auto != null) {
-      auto.cancel();
+    @Override
+    public void robotPeriodic() {
+        CommandScheduler.getInstance().run();
     }
-  }
 
-  @Override
-  public void teleopPeriodic() {}
+    /*********************/
+    /*** DISABLED MODE ***/
+    /*********************/
 
-  @Override
-  public void teleopExit() {}
+    @Override
+    public void disabledInit() {}
 
-  /*****************/
-  /*** TEST MODE ***/
-  /*****************/
+    @Override
+    public void disabledPeriodic() {}
 
-  @Override
-  public void testInit() {
-    CommandScheduler.getInstance().cancelAll();
-  }
+    /***********************/
+    /*** AUTONOMOUS MODE ***/
+    /***********************/  
 
-  @Override
-  public void testPeriodic() {}
+    @Override
+    public void autonomousInit() {
+        auto = robot.getAutonomousCommand();
 
-  @Override
-  public void testExit() {}
+        if (auto != null) {
+            auto.schedule();
+        }
+    }
+
+    @Override
+    public void autonomousPeriodic() {}
+
+    @Override
+    public void autonomousExit() {}
+
+    /*******************/
+    /*** TELEOP MODE ***/
+    /*******************/
+
+    @Override
+    public void teleopInit() {
+        if (auto != null) {
+            auto.cancel();
+        }
+    }
+
+    @Override
+    public void teleopPeriodic() {}
+
+    @Override
+    public void teleopExit() {}
+
+    /*****************/
+    /*** TEST MODE ***/
+    /*****************/
+
+    @Override
+    public void testInit() {
+        CommandScheduler.getInstance().cancelAll();
+    }
+
+    @Override
+    public void testPeriodic() {}
+
+    @Override
+    public void testExit() {}
 }
