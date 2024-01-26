@@ -90,20 +90,23 @@ public interface Motors {
         public final IdleMode IDLE_MODE;
         public final int CURRENT_LIMIT_AMPS;
         public final double OPEN_LOOP_RAMP_RATE;
+        public final CANSparkMax FOLLOWS;
 
         public CANSparkMaxConfig(
                 boolean inverted,
                 IdleMode idleMode,
                 int currentLimitAmps,
-                double openLoopRampRate) {
+                double openLoopRampRate,
+                CANSparkMax follows) {
             this.INVERTED = inverted;
             this.IDLE_MODE = idleMode;
             this.CURRENT_LIMIT_AMPS = currentLimitAmps;
             this.OPEN_LOOP_RAMP_RATE = openLoopRampRate;
+            this.FOLLOWS = follows;
         }
 
         public CANSparkMaxConfig(boolean inverted, IdleMode idleMode, int currentLimitAmps) {
-            this(inverted, idleMode, currentLimitAmps, 0.0);
+            this(inverted, idleMode, currentLimitAmps, 0.0, null);
         }
 
         public CANSparkMaxConfig(boolean inverted, IdleMode idleMode) {
@@ -115,6 +118,7 @@ public interface Motors {
             motor.setIdleMode(IDLE_MODE);
             motor.setSmartCurrentLimit(CURRENT_LIMIT_AMPS);
             motor.setOpenLoopRampRate(OPEN_LOOP_RAMP_RATE);
+            if (FOLLOWS != null) motor.follow(FOLLOWS);
             motor.burnFlash();
          }
           
