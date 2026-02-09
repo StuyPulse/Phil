@@ -9,8 +9,9 @@ A template repo for a command style robot.
 - Now go Phil up your repository. Godspeed. 
 
 ## To Update | Maintain
-
-- Import project to the latest version of WPILib using the built-in import tool. 
-- Check that the `GradleRIO` version is up to date. 
+Do *not* use the automatic import project tool. Instead,
+- Change the 'frcYear' to the current year in `settings.gradle`.
+- Check that the `GradleRIO` version is up to date in `./build.gradle`. 
 - Check the latest version of [StuyLib here](https://github.com/StuyPulse/StuyLib/releases) and update the version in `./build.gradle`.
-- Update the files in `./venderdeps` with their latest version, checking their respective websites. 
+- Manually update the files ('frcYear', 'version', URLS) in `./venderdeps` with their latest version, checking their respective websites, or import new versions using WPILib vendor dependencies.
+
